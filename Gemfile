@@ -49,6 +49,9 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'bcrypt','~> 3.1.7'
   gem 'pry'
+  gem 'seed_dump'
+
+
 end
 
 group :test do
