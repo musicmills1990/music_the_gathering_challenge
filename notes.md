@@ -53,6 +53,73 @@ a team has many characters (so maybe this is a parent/child nested thing?)
 team || many-to-many || character
 
 a character has many songs
+a song has many characters that sing the same song...
+song || many-to-many || character
+
+a team has songs THROUGH characters....
+
+
+
+
+Rails Project Checklist of Requirements
+
+1. A summary of the application
+
+This is an interactive fan game for my entertainment business’s brand. It will in part serve as a database for song knowledge of each character. When a user creates an account they will choose how much “Music Mana” they would like to “buy”.  These will act like tickets that allow them to make choices during the game. The users homepage will have the option to “create a team” or “choose from a saved team” if they have already created teams before. This will allow them to choose three different musicians from any band and put together their own custom Renaissance band. Each Character will have different 4 music attributes, a list of songs they know, and their mana cost. The more talented a character, the higher the cost. Once a user has selected their team, it will bring them to a team page, with combined musical attribute points that they stand to gain, the total price it will cost them to play a song with their team, and a list of the songs that each of the three band members know collectively with a “perform this song” button. When they chose the song, it will add the XP points to their profile, subtract the MusicMana cost, and display a message saying “Your band played the song!”
+
+
+2. What will your models and associations be and why? You will need a has_many and belongs_to relationship as well as a many to many relationship.
+
+-User
+-Team
+-Character
+-Song
+
+a user can have many teams
+a user has many characters through a team
+a team has many characters (so maybe this is a parent/child nested thing?)
+team || many-to-many || character
+
+
+a character has many songs
 a song belongs to a character
 
 a team has songs THROUGH characters....
+
+
+3. How will you implement a user submittable attribute on the join table of the many to many relationship?
+So if the many to many relationship is Team_Characters, since that is a many to many relationship, it could be a "Team Count" feature, which could display the number of teams a user has created, as well as the number of teams that a character is on.
+
+
+
+4. What it is an ActiveRecord scope method and what is your implementation plan?
+	Filter, using a search box would query a specific amount of info
+	Song filter search bar check out tutorials
+
+5. What validations will you have for your models?
+
+user:
+-presence of all attributes
+-uniqueness of email
+-has secure password
+
+team:
+-must have exactly 3 characters
+
+character:
+-must have at least 1 song
+
+song:
+-name must be unique
+
+
+6. How will you implement an authentication system?
+	I want to learn about devise so I might try using that...
+
+7. What 3rd party login service will you use?
+-facebook
+
+8. With the way your models are setup what nested routes will you use to meet the requirement?
+
+-I think it's gonna be the teams/characters will be nested as parent/child but I'm not sure #NO sorry that doesn't work.
+In order to do something nested I think I'll have to add another class, but I don't necessarily want it to become more complicated. For simplicity's sake I think I'll make it a comments model so users can write something clever about their fav characters.
