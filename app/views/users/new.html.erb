@@ -1,3 +1,7 @@
+<% if @user.errors.any? %>
+<%= @user.errors.full_messages.to_sentence %>
+<% end %>
+
 <h1>Welcome to <strong>Music The Gathering Challenge!</strong></h1>
 <h2>An interactive RenFaire musician fan site</h2><br>
 <h2>Sign Up</h2>
@@ -5,6 +9,9 @@
 
 <%= f.label :name %>
 <%= f.text_field :name %><br>
+
+<%= f.label :email %>
+<%= f.text_field :email %><br>
 
 <%= f.label :password %>
 <%= f.password_field :password %><br>
