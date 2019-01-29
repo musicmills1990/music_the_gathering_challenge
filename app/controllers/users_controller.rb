@@ -3,6 +3,9 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def create
+    raise params.inspect
+  end
   def show
   end
 end
