@@ -2,8 +2,6 @@
 <%= @user.errors.full_messages.to_sentence %>
 <% end %>
 
-<h1>Welcome to <strong>Music The Gathering Challenge!</strong></h1>
-<h2>An interactive RenFaire musician fan site</h2><br>
 <h2>Sign Up</h2>
 <%= form_for @user do |f| %>
 
@@ -17,7 +15,7 @@
 <%= f.password_field :password %><br>
 
 <label>Music Mana (give yourself as much as you want, you'll need it to play the game and it's free!)</label>
-<%= f.text_field :music_mana %><br>
+<%= f.text_field :music_mana, :placeholder => "Start with 1000" %><br>
 
 <%= f.submit 'Start Your Adventure!'%>
 

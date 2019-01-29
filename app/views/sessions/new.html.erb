@@ -1,2 +1,15 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<% if @user.errors.any? %>
+<%= @user.errors.full_messages.to_sentence %>
+<% end %>
+
+<h1>welcome back! Log In:</h1>
+<%= form_for @user, url: login_path, method: :post do |f| %>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %><br>
+
+  <label>Password:</label>
+  <%= password_field_tag :password %>
+
+  <%= f.submit "Log In" %>
+<% end %>
