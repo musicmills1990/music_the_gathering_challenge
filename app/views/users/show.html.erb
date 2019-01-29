@@ -1,1 +1,14 @@
   <h1>Welcome, <%= @user.name%>!</h1>
+  <h2>Your Music Mana: <%= @user.music_mana%></h2>
+  <h2>Level: <%= @user.level %></h2>
+  <br>
+  <h1>STATS & ABILITIES</h1>
+  <h2>Rhythmic: <%= @user.rhythm_xp%> XP</h2>
+  <h2>Instrumental: <%= @user.instrument_xp%> XP</h2>
+  <h2>Vocal: <%= @user.vocal_xp%> XP</h2>
+  <h2>Comedic: <%= @user.comedy_xp%> XP</h2>
+
+<p>Get any 50 XP points to move up to the next level!</p>
+
+  <h2><%= link_to "Add A Team", new_team_path %></h2> <!-- This will lead to a team/new route-->
+<h2><%= link_to "Your Teams", teams_path %></h2><!-- This will lead to a team/index route for the current_user -->
