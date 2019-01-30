@@ -8,6 +8,6 @@
 
   <li><strong>Cost to play: <%= @character.music_mana_cost %></strong></li>
 
-    <%= link_to "#{@character.name}'s Comment Page", character_comment_path(@character) %>
+    <%= link_to "#{@character.name}'s Comment Page", character_comments_path(@character) %>
 
   <%= image_tag "#{@character.name}.png", :alt => "#{@character.name}'s card" %>

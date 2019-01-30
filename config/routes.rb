@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users
   resources :teams
   resources :characters do
-    resources :comments, only: [:new, :show]
+    resources :comments
   end
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'

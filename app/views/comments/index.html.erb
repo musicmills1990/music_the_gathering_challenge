@@ -1,0 +1,7 @@
+<h2><%= @character.name%>'s Comments</h2>
+
+<% @comments.each do |comment| %>
+<li><%= comment.name %></li>
+<% end %>
+
+<%= link_to 'Add a new comment', new_character_comment_path %>
