@@ -1,2 +1,9 @@
 <h1><%= @character.name %></h1>
+<h3>STATS & ABILITIES</h3>
+<li>Rhythmic: <%= @character.rhythm_score %></li>
+<li>Instrumental: <%= @character.instrument_score %></li>
+<li>Vocal: <%= @character.vocal_score %></li>
+<li>Comedic: <%= @character.comedy_score %></li>
+<li><strong>Cost to play: <%= @character.music_mana_cost %></strong></li>
+<%= link_to "#{@character.name}'s Comment Page", "character_comment_path(@character)" %>
 <%= image_tag "#{@character.name}.png", :alt => "#{@character.name}'s card" %>
