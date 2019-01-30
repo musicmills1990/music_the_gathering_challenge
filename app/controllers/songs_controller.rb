@@ -5,6 +5,7 @@ class SongsController < ApplicationController
 
   def new
     @song = Song.new
+    @characters = Character.all
   end
 
   def create

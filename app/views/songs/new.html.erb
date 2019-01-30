@@ -3,8 +3,9 @@
 <%= t.label :Song_Name %>
 <%= t.text_field :name %><br>
 
-<label>Tune(instrumnetal only) or Song?</label>
+<label>Tune (instrumnetal only) or Song?</label>
 <%= t.select :category, ["Tune", "Song"] %>
-<p>Characters who know this song: (need to add this here I think)</p>
+<%= t.collection_select :characters, @characters, :id, :name %>
+
 <%= t.submit "Add Song" %>
 <% end %>

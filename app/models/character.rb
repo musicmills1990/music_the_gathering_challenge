@@ -1,5 +1,7 @@
 class Character < ApplicationRecord
+  has_many :characterteams
   has_many :teams, through: :characterteam
+  has_many :charactersongs
   has_many :songs, through: :charactersong
   has_many :comments
 end
