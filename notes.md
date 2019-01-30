@@ -141,3 +141,12 @@ Next Steps (instead of blindly moving forward like I tend to do:)
 9. Build the team controller out, a new team form should be a click button list of characters, then once it's posted, it should lead to a team show page that A. Has the three characters listed, B. Has the "songs known" list with a "perform this song" button next to it, C. Has "total XP to gain" and D. "total MusicMana cost" on the page.
 10. Figure out how the "perform this song" function will work and where it can be built, but the function will be similar to the "take a ride" function in amusement park, where it will redirect to the user's profile page, will add XP to their profile, subtract the cost, and flash a message saying something like "that rocked! Your team just played song_12!"
 11. The thing I don't care about or want: The scope method. Making a search bar of some kind to I guess filter the songs?? We'll get there when we get there.
+
+
+5* -> the nested comment routes work, and there's in theory a comments index page and new form nested onto each character but the comments wont persist to the database
+
+7* -> I might need to go back and read more about complex relationships. I am trying to add the collection_select form helper to my new song form but I don't know what I'm doing wrong to get the error:
+Could not find the association :charactersong in model Song
+since my models are set up with joins table models and I believe their associating to each other properly.
+8* -> I have a feeling once I understand whats up with the many-to-many relationship I should be able to make that function fairly easily (on the teams model as a function I think but I'm not there yet)
+This is complex and hell! As per usually I've bitten off more than I can handle and I'll have to figure it out as I go .
