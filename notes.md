@@ -123,3 +123,21 @@ song:
 
 -I think it's gonna be the teams/characters will be nested as parent/child but I'm not sure #NO sorry that doesn't work.
 In order to do something nested I think I'll have to add another class, but I don't necessarily want it to become more complicated. For simplicity's sake I think I'll make it a comments model so users can write something clever about their fav characters.
+
+
+TO DO LIST
+So far I have:
+1. an secure_password login system, a fully structured environment
+2. a user environment where they can see their XP points, their status, and they have an option to make a new team or choose from their fav teams in the nav bar.
+3. there's a dynamic list of characters that are seeded for the purposes of this project, but for additions I could see extending this by adding an admin function where someone can add a new character or update the song list.
+4. I began stubbing out the comments child underneath each character and it leads to a nested routing system successfully.
+
+Next Steps (instead of blindly moving forward like I tend to do:)
+
+5. [X*] I want to build the new comment form right on the comment show page, so each set of comments only pertain to a particular character (look at the code for Avi's TODOMVC video)
+6. Once comments are working, I'd like to seed in the songs (or maybe it's easier to build a simple new songs form so you can front end it so you don't have to build that later on...) DECISION --> build a new song form and a songs index page
+7. Figure out how to connect the characters to the songs they know.
+8. Once characters know their songs, build a function (where? maybe in the team model?????) that tells you all of the commonly known songs among any THREE characters (this will take some googling/asking for help)
+9. Build the team controller out, a new team form should be a click button list of characters, then once it's posted, it should lead to a team show page that A. Has the three characters listed, B. Has the "songs known" list with a "perform this song" button next to it, C. Has "total XP to gain" and D. "total MusicMana cost" on the page.
+10. Figure out how the "perform this song" function will work and where it can be built, but the function will be similar to the "take a ride" function in amusement park, where it will redirect to the user's profile page, will add XP to their profile, subtract the cost, and flash a message saying something like "that rocked! Your team just played song_12!"
+11. The thing I don't care about or want: The scope method. Making a search bar of some kind to I guess filter the songs?? We'll get there when we get there.

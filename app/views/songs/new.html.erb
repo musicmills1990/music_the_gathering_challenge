@@ -1,0 +1,6 @@
+<h1>Add A New Song</h1>
+<%= form_for @song do |t| %>
+<%= t.text_field :name %>
+<p>Characters who know this song: (need to add this here I think)</p>
+<%= t.submit "Add Song" %>
+<% end %>
