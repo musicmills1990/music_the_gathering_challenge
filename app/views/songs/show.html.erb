@@ -1,3 +1,5 @@
 <h1><%= @song.name %></h1>
+<h2><%= @song.category %></h2>
+<%= button_to "Delete", song_path(@song), :method => "delete" %>
 <h2>Characters Who know this song:</h2>
 <p>Somehow have to have a list of characters that know this song.</p>

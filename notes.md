@@ -135,7 +135,7 @@ So far I have:
 Next Steps (instead of blindly moving forward like I tend to do:)
 
 5. [X*] I want to build the new comment form right on the comment show page, so each set of comments only pertain to a particular character (look at the code for Avi's TODOMVC video)
-6. Once comments are working, I'd like to seed in the songs (or maybe it's easier to build a simple new songs form so you can front end it so you don't have to build that later on...) DECISION --> build a new song form and a songs index page
+6. [X] Once comments are working, I'd like to seed in the songs (or maybe it's easier to build a simple new songs form so you can front end it so you don't have to build that later on...) DECISION --> build a new song form and a songs index page
 7. Figure out how to connect the characters to the songs they know.
 8. Once characters know their songs, build a function (where? maybe in the team model?????) that tells you all of the commonly known songs among any THREE characters (this will take some googling/asking for help)
 9. Build the team controller out, a new team form should be a click button list of characters, then once it's posted, it should lead to a team show page that A. Has the three characters listed, B. Has the "songs known" list with a "perform this song" button next to it, C. Has "total XP to gain" and D. "total MusicMana cost" on the page.

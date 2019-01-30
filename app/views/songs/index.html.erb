@@ -1,5 +1,17 @@
 <h1>Songs and Tunes</h1>
+
+<h2>Tunes (Instrumental)</h2>
 <% @songs.each do |song| %>
-  <li><%= link_to song.name, song_path(song)%></li>
+  <% if song.category == "Tune" %>
+    <li><%= link_to song.name, song_path(song)%></li>
+  <% end %>
 <% end %>
+
+<h2>Songs (Vocal and/or Comedy)</h2>
+<% @songs.each do |song| %>
+  <% if song.category == "Song" %>
+    <li><%= link_to song.name, song_path(song)%></li>
+  <% end %>
+<% end %>
+
 <h2><%= link_to "Add A New Song", new_song_path%></h2>
