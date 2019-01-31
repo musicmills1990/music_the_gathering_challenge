@@ -6,9 +6,9 @@
   <label>Tune (instrumnetal only) or Song?</label>
   <%= t.select :category, ["Tune", "Song"] %><br>
   <%= t.label "Characters who know this song:" %><br>
-  <%= t.collection_check_boxes :character_ids, @characters, :id, :name do |b|%>
-    <%= b.label %><br>
-  <% end %>
-
+    <%= t.collection_check_boxes :character_ids, @characters, :id, :name do |b|%>
+      <%= b.label %>
+      <%= b.check_box %><br>
+    <% end %>
   <%= t.submit "Add Song" %>
 <% end %>

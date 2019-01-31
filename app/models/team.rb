@@ -4,7 +4,8 @@ class Team < ApplicationRecord
   #a team, but I need a team to have exactly three characters to be a valid team. Maybe this validation goes in the joins table but I'm not sure yet...
 
   belongs_to :user
-  has_many :characters, through: :characterteam
+  has_many :character_teams
+  has_many :characters, through: :character_teams
 
   def perform_a_song
     #this will be like the "take a ride" method in amusement park not sure about this yet

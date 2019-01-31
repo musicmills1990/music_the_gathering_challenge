@@ -1,4 +1,4 @@
 class Song < ApplicationRecord
-  has_many :characters, through: :charactersong
-  has_many :charactersongs
+  has_many :character_songs
+  has_many :characters, through: :character_songs
 end
