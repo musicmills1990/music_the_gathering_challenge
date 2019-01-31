@@ -2,9 +2,16 @@
   <%= t.label "Team Name:"%>
   <%= t.text_field :name %><br>
   <%= t.label "Choose Three Characters to make your MTG Challenge Team!" %><br>
-    <%= t.collection_check_boxes :character_ids, @characters, :id, :name do |b|%>
+    <%= t.collection_check_boxes :character_ids, Character.all, :id, :name do |b|%>
       <%= b.label %>
       <%= b.check_box %><br>
     <% end %>
     <%= t.submit "Collaborate!" %>
 <% end %>
+
+<p>-------feature to add (user submittable attribute on the team_characters model)-------</p>
+<p>Team Style: (choices with buttons):</p>
+<li>warriors</li>
+<li>bards</li>
+<li>poets</li>
+<li>jesters</li>

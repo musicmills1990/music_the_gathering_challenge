@@ -4,7 +4,9 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(name: params[:name], character_id: params[:character_id])
+    @character = Character.find_by(id: params[:character_id])
+    @comment = Comment.new(comment_params)
+    @comment.character = @character
     if @comment.save
       redirect_to character_comments_path
     else

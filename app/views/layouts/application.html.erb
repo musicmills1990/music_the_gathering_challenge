@@ -10,13 +10,17 @@
   </head>
 
   <body>
+      <% if @current_user %>
     <div class="navigation">
       <h3><%= link_to "Home", "/" %> || <%= link_to "Characters", "/characters"%> || <%= link_to "Songs", "/songs"%> || <%= link_to "Teams", "/teams" %></h3>
-
-
     </div>
+      <% end %>
     <h1>Welcome to <strong>Music The Gathering Challenge!</strong></h1>
     <h2>An interactive RenFaire musician fan site</h2><br>
     <%= yield %>
+
+    <% if @current_user %>
+  <h3><%= link_to "Log Out", signout_path, method: :delete %></h3>
+  <% end %>
   </body>
 </html>

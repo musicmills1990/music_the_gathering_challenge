@@ -1,27 +1,35 @@
 class TeamsController < ApplicationController
 
-  def new
-    @team = Team.new
-    @characters = Character.all
-  end
-
-  def create
-    @team = Team.new(team_params)
-    if @team.save
-      redirect_to teams_path
+  def index
+    if logged_in? && @current_user
+      @teams = Team.all
     else
-      render :new
+      redirect_to root_path
     end
   end
 
-  def index
-    @teams = Team.all
+  def new
+    @characters = Character.all
+    @team = Team.new
+  end
+
+  def create
+    if logged_in?
+      @team = Team.new(team_params)
+      @team.user = @current_user
+      if @team.save
+        redirect_to team_path(@team)
+      else
+        render :new
+      end
+    else
+      redirect_to root_path
+    end
   end
 
   def show
     @team = Team.find(params[:id])
   end
-
 
 private
 

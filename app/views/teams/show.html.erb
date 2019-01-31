@@ -1,4 +1,8 @@
-<h1><%= @team.name%>!</h1>
-<%= @team.characters.each do |character| %>
+<h1><%= @team.name%></h1>
+<% @team.characters.each do |character| %>
 <li><%= character.name %></li>
 <% end %>
+<i>*Smashed Mug*</i><%= link_to "Another!", new_team_path %>
+
+<h2>Songs:</h2>
+<p>method I still need to write</p>

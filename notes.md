@@ -153,10 +153,10 @@ This is complex and hell! As per usually I've bitten off more than I can handle 
 
 
 OKAY. OOF. This is a big project. I think I have the basis of a many-to-many relationship working. The nested route relationship is close to working and I think the lab I have open has a good example to figure out why that's not working exactly. Tommorrow I need to:
-  A. [ ] Display the information on both sides of the Character and song show pages
-  B. [ ] Fix the bugs associated with the comments form
+  A. [X] Display the information on both sides of the Character and song show pages
+  B. [O] Fix the bugs associated with the comments form
   C. [ ] Start looking at user validation
-  D. [ ] Build out the team class and controllers
+  D. [X] Build out the team class and controllers
   E. [ ] Figure out this fucking scope method thing
   F. [ ] I'll eventually get to the methods "Perform a song" and "Song Count"
   G. [ ] OAuth to sign in through facebook
@@ -165,4 +165,15 @@ OKAY. OOF. This is a big project. I think I have the basis of a many-to-many rel
 
 
   debugging:
-  go to the complex asscociations lab, run rails server and check params to see if it has a characters equiv sub category
+  [X] go to the complex asscociations lab, run rails server and check params to see if it has a characters equiv sub category
+  luisa's project recipe finder <-- look at this for scope method example...
+  B. Idk I have to look at more examples of nested comment OKAY SO I'VE TRIED A TON OF DIFFERENT THINGS AND I STILL CAN'T FIGURE IT OUT SO MOVE ON.
+cool! command + / comments out the line!
+  - I have the same problem on both the submitting of the teams creation page and the comments add page. So I'm doing something wrong in both places.
+- for a belongs to/has many relationship the user must be valid in order to save information to the child
+- add current user to have team work
+
+  questions for office hours:
+  1. I have the same problem on both the submitting of the teams creation page and the comments add page. So I'm doing something wrong in both places.
+  2. Does that feature idea make sense? 4 "Team Styles" (stubbed out in new_team_path)
+  3.
