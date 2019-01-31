@@ -1,15 +1,14 @@
 Rails.application.routes.draw do
   get 'welcome/home'
   root "welcome#home"
-  resources :users do
-    resources :teams
-  end
+  resources :users
   resources :teams
   resources :songs
 
   resources :characters do
     resources :comments
   end
+
   get '/login' => "sessions#new"
   post '/login' => 'sessions#create'
   delete '/signout', to: 'sessions#destroy'
