@@ -7,7 +7,10 @@
   <li>Comedic: <%= @character.comedy_score %></li>
 
   <li><strong>Cost to play: <%= @character.music_mana_cost %></strong></li>
-
-    <%= link_to "#{@character.name}'s Comment Page", character_comments_path(@character) %>
+  <h3>Songs Known:</h3>
+  <% @character.songs.each do |song| %>
+  <li><%= song.name %></li>
+  <% end %>
+  <%= link_to "#{@character.name}'s Comment Page", character_comments_path(@character) %><br>
 
   <%= image_tag "#{@character.name}.png", :alt => "#{@character.name}'s card" %>

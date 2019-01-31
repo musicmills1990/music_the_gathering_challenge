@@ -1,7 +1,12 @@
 <h2><%= @character.name%>'s Comments</h2>
 
-<% @comments.each do |comment| %>
+<% @character.comments.each do |comment| %>
 <li><%= comment.name %></li>
 <% end %>
 
-<%= link_to 'Add a new comment', new_character_comment_path %>
+<h1>New Comment</h1>
+<%= form_for @comment, url: character_comments_path, method: :post do |t| %>
+  <%= t.label :add_your_comment %>
+  <%= t.text_field :name %>
+  <%= t.submit "Add Your Comment!" %>
+<% end %>

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   get 'welcome/home'
   root "welcome#home"
-  resources :users
+  resources :users do
+    resources :teams
+  end
   resources :teams
   resources :songs
 

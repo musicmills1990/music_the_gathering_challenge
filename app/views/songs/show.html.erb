@@ -2,8 +2,7 @@
 <h4><i><%= @song.category %></i></h4>
 <%= button_to "Delete", song_path(@song), :method => "delete" %>
 <h2>Characters Who know this song:</h2>
-<p>Somehow have to have a list of characters that know this song.</p>
 <% @song.characters.each do |character| %>
-  <%= character.name %>
+  <%= character.name %><br>
 <% end %>
 <h3><%= link_to "Add Another Song", new_song_path%></h3>

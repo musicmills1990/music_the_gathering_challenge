@@ -153,10 +153,16 @@ This is complex and hell! As per usually I've bitten off more than I can handle 
 
 
 OKAY. OOF. This is a big project. I think I have the basis of a many-to-many relationship working. The nested route relationship is close to working and I think the lab I have open has a good example to figure out why that's not working exactly. Tommorrow I need to:
-  A. Display the information on both sides of the Character and song show pages
-  B. Fix the bugs associated with the comments form
-  C. Start looking at user validation
-  D. Build out the team class and controllers
-  E. Figure out this fucking scope method thing
-  F. I'll eventually get to the methods "Perform a song" and "Song Count"
-  G. Styling!
+  A. [ ] Display the information on both sides of the Character and song show pages
+  B. [ ] Fix the bugs associated with the comments form
+  C. [ ] Start looking at user validation
+  D. [ ] Build out the team class and controllers
+  E. [ ] Figure out this fucking scope method thing
+  F. [ ] I'll eventually get to the methods "Perform a song" and "Song Count"
+  G. [ ] OAuth to sign in through facebook
+  G. [ ] Styling!
+
+
+
+  debugging:
+  go to the complex asscociations lab, run rails server and check params to see if it has a characters equiv sub category

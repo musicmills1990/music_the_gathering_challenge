@@ -19,6 +19,7 @@ class SongsController < ApplicationController
 
   def show
     @song = Song.find(params[:id])
+
   end
 
   def destroy
@@ -30,7 +31,7 @@ class SongsController < ApplicationController
 private
 
 def song_params
-  params.require(:song).permit(:name, :category)
+  params.require(:song).permit(:name, :category, character_ids: [])
 end
 
 end
