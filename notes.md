@@ -150,3 +150,13 @@ Could not find the association :charactersong in model Song
 since my models are set up with joins table models and I believe their associating to each other properly.
 8* -> I have a feeling once I understand whats up with the many-to-many relationship I should be able to make that function fairly easily (on the teams model as a function I think but I'm not there yet)
 This is complex and hell! As per usually I've bitten off more than I can handle and I'll have to figure it out as I go .
+
+
+OKAY. OOF. This is a big project. I think I have the basis of a many-to-many relationship working. The nested route relationship is close to working and I think the lab I have open has a good example to figure out why that's not working exactly. Tommorrow I need to:
+  A. Display the information on both sides of the Character and song show pages
+  B. Fix the bugs associated with the comments form
+  C. Start looking at user validation
+  D. Build out the team class and controllers
+  E. Figure out this fucking scope method thing
+  F. I'll eventually get to the methods "Perform a song" and "Song Count"
+  G. Styling!
