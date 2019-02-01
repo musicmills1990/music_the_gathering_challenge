@@ -45,12 +45,21 @@ class Team < ApplicationRecord
     return character_array.sum.to_i
   end
 
-
-
-
-  def common_songs
+  def common_songs # I know this is incredible vinegary I'll refactor once I'm more conceptually solid
+    char_array = self.characters.collect do |char| #this pulls the characters from any given team and gives me a huge
+      char.songs #song list with all three characters' songs in a nested array
+    end
+    char_1_songs = char_array[0].collect do |song| #just for the sake of pulling it out of the nested array, here's explicitly character 1's songs
+      song.name
+    end
+    char_2_songs = char_array[1].collect do |song| # character 2's songs
+      song.name
+    end
+    char_3_songs = char_array[2].collect do |song| # and character 3's songs
+      song.name
+    end
+    return char_1_songs & char_2_songs & char_3_songs
   end
-
 
   def perform_a_song
     #this will be like the "take a ride" method in amusement park not sure about this yet
