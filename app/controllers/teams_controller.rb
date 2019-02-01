@@ -1,7 +1,7 @@
 class TeamsController < ApplicationController
 
   def index
-    if logged_in? && @current_user
+    if logged_in?
       @teams = Team.all
     else
       redirect_to root_path

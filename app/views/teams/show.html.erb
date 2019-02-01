@@ -2,8 +2,19 @@
 <% @team.characters.each do |character| %>
 <li><%= character.name %></li>
 <% end %>
-
 <h2>Songs:</h2>
 <p>method I still need to write</p>
+
+
+<h2>Stats of your Team</h2>
+<p>Each time <%= @team.name %> performs a song, you will gain:</p>
+<h3>Total XP: <%= @team.total_xp %></h3><br>
+<p>Total Rhythm XP: <%= @team.total_rhythm_xp %></p>
+<p>Total Instrument XP: <%= @team.total_vocal_xp %></p>
+<p>Total Vocal XP: <%= @team.total_comedy_xp %></p>
+<p>Total Comedy XP: <%= @team.total_instrument_xp %></p>
+
+<h2>Mana Cost</h2>
+
 
 <h3><i>*Smashed Mug*</i><%= link_to "Another!", new_team_path %></h3>

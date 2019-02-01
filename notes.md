@@ -172,8 +172,15 @@ cool! command + / comments out the line!
   - I have the same problem on both the submitting of the teams creation page and the comments add page. So I'm doing something wrong in both places.
 - for a belongs to/has many relationship the user must be valid in order to save information to the child
 - add current user to have team work
+-  
 
   questions for office hours:
   1. I have the same problem on both the submitting of the teams creation page and the comments add page. So I'm doing something wrong in both places.
   2. Does that feature idea make sense? 4 "Team Styles" (stubbed out in new_team_path)
-  3.
+
+
+Things that still need to happen:
+1. Songs in common method
+2. Perform that song method
+3. Scope method
+4. Error messages
