@@ -9,14 +9,28 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-      <% if @current_user %>
-    <div class="navigation">
-      <h3><%= link_to "Home", "/" %> || <%= link_to "Characters", "/characters"%> || <%= link_to "Songs", "/songs"%> || <%= link_to "Teams", "/teams" %></h3>
-    </div>
-      <% end %>
-    <h1>Welcome to <strong>Music The Gathering Challenge!</strong></h1>
-    <h2>An interactive RenFaire musician fan site</h2><br>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+    <% if @current_user %>
+      <a class="navbar-brand" href="<%= root_url %>"/>Home</a>
+      <a class="navbar-brand" href="<%= characters_path %>"/>Characters</a>
+      <a class="navbar-brand" href="<%= songs_path %>"/>Songs</a>
+      <a class="navbar-brand" href="<%= teams_path %>"/>Teams</a>
+    <% end %>
+      </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+
+
+<h1>Welcome to <strong>Music The Gathering Challenge!</strong></h1>
+<h2>An interactive RenFaire musician fan site</h2><br>
     <%= yield %>
 
     <% if @current_user %>

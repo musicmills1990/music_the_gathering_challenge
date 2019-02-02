@@ -1,3 +1,7 @@
+<% if flash[:message] %>
+  <h3><%= flash[:message] %></h3>
+<% end %>
+
   <h1>Welcome, <%= @user.name%>!</h1>
   <h2>Your Music Mana: <%= @user.music_mana%></h2>
   <h2>Level: <%= @user.level %></h2>

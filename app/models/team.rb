@@ -60,9 +60,4 @@ class Team < ApplicationRecord
     end
     return char_1_songs & char_2_songs & char_3_songs
   end
-
-  def perform_a_song
-    #this will be like the "take a ride" method in amusement park not sure about this yet
-  end
-
 end
