@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_01_214224) do
+ActiveRecord::Schema.define(version: 2019_02_02_012233) do
 
   create_table "character_songs", force: :cascade do |t|
     t.integer "song_id"
@@ -41,6 +41,13 @@ ActiveRecord::Schema.define(version: 2019_02_01_214224) do
   create_table "comments", force: :cascade do |t|
     t.string "name"
     t.integer "character_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "performs", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

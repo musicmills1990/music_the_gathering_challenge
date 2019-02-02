@@ -184,3 +184,11 @@ Things that still need to happen:
 2. Perform that song method
 3. Scope method
 4. Error messages
+
+
+
+songs in common method
+-a team has access to the characters in it....
+-each character has access to the songs they know
+-logic could say "take a team (object), grab the three characters, then grab all the songs they know. Then remove all the songs that are not known by all three characters..."
+makes sense that this will go in the team model

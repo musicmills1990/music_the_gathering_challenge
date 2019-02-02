@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'performs/new'
+  post 'performs/new', to: 'performs#new'
   get 'welcome/home'
   root "welcome#home"
   resources :users

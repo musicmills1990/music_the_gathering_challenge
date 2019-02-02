@@ -20,4 +20,11 @@
 
 <h2>Mana Cost: <%= @team.total_cost%></h2>
 
+<form action="/performs/new" method="post">
+  <%= tag(:input, type: "hidden", name: request_forgery_protection_token.to_s, value: form_authenticity_token) %>
+  <%= tag(:input, type: "hidden", name: :user_id, value: @current_user.id) %>
+  <%= tag(:input, type: "hidden", name: :team_id, value: @team.id) %>
+  <input type="submit" value="Perform A Song!">
+</form>
+
 <h3><%= link_to "Make Another Team!", new_team_path %></h3>

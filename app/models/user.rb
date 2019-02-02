@@ -2,8 +2,10 @@ class User < ApplicationRecord
   has_secure_password
   validates :email, presence: true, uniqueness: true
 
-  has_many :teams
+  #has_many :teams
   has_many :characters, through: :teams
+  has_many :performs
+  has_many :teams, through: :performs
 
 
   def level
