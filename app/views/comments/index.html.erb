@@ -1,7 +1,7 @@
-<h2><%= @character.name%>'s Comments</h2>
+<h2><%= @character.name%>'s Comments:</h2>
 
 <% @character.comments.each do |comment| %>
-<li><%= comment.name %></li>
+  <h3><%= comment.name %></h3>
 <% end %>
 
 <h1>New Comment</h1>

@@ -24,6 +24,11 @@
   <%= tag(:input, type: "hidden", name: request_forgery_protection_token.to_s, value: form_authenticity_token) %>
   <%= tag(:input, type: "hidden", name: :user_id, value: @current_user.id) %>
   <%= tag(:input, type: "hidden", name: :team_id, value: @team.id) %>
+<!-- <p>I want line 28 to generate a list of check_boxes of the team's common songs, and whichever one is picked is the 'song_choice' attribute on performs</p> -->
+  <%# <%= collection_check_boxes(:team, :song_ids, @team.common_songs, :name) do |b| %>
+    <%# <%= b.label %>
+    <%# <%= b.check_box %>
+  <%# <% end %>
   <input type="submit" value="Perform A Song!">
 </form>
 
