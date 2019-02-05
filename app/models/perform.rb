@@ -15,7 +15,7 @@ belongs_to :team
         :vocal_xp => perform.user.vocal_xp + perform.team.total_vocal_xp,
         :comedy_xp => perform.user.comedy_xp + perform.team.total_comedy_xp
       )
-      @message = "Thanks for playing one of #{self.team.name}'s songs!'"
+      @message = "Thanks for playing one of '#{self.team.name}'s' songs!'"
     end
   end
 

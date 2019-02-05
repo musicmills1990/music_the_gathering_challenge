@@ -180,10 +180,12 @@ cool! command + / comments out the line!
 
 
 Things that still need to happen:
-1. Songs in common method
-2. Perform that song method
-3. Scope method
-4. Error messages
+1. [X] Songs in common method
+2. [X]  Perform that song method
+3. [ ] Scope method
+4. [X] Error messages
+5. [ ] OAuth
+6. [ ] User submittable attr on joins table
 
 
 
