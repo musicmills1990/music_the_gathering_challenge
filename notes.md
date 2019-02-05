@@ -184,8 +184,8 @@ Things that still need to happen:
 2. [X]  Perform that song method
 3. [X/0] Scope method
 4. [X] Error messages
-5. [0] OAuth
-6. [ ] User submittable attr on joins table
+5. [X/0] OAuth
+6. [X] User submittable attr on joins table
 
 
 
@@ -198,7 +198,30 @@ makes sense that this will go in the team model
 
 
 
+In order of priority for office hours:
 
-Questions about OmniAuth:
-1. After following the steps and trying to be sure that it doesn't mess up my sessions controller's normal #create method, I don't understand why the route "/auth/facebook/" needs a get route, since it should hit the facebook page's site and give them the option to log in and redirecting back to /auth/facebook/callback.
-2. If a user has to sign up through the site in order to add their "music mana", then what part of the facebook login process allows them to connect with that user profile they've already set up locally?
+1. Question on perform attribute: "song_choice"
+  A. I have this new attribute to ask the user which song they would like their group to perform, which is finally a joins table user submittable attribute! I need help understanding how to write out a collection_check_boxes tag in my perform_song submit form.
+
+2. Questions about OmniAuth:
+  A. My callback to facebook is working but I'm not being logged in. It callsback to the URL "localhost:3000/#_=_".
+  B. If a user has to sign up through the site in order to add their "music mana", then what part of the facebook login process allows them to connect with that user profile they've already set up locally?
+
+
+Question about scope method:
+  A. I was able to follow along to the study group example but I can't figure out why it's not adding them in descending order, just the order in which they were added to the DB. Not a huge deal if it works, but it would be cleaner if it was in numeric order.
+
+
+
+
+
+
+New plan for user-submittable attr:
+-make an attribute on the newly created join model "perform" and call it something like "song_choice", where a user will click a button of which song they'd like to perform when they use their team. It will then give a message saying "thanks for playing 'perform.song_choice' in the flash(message), which is what I wanted in the first place anyway.
+
+graveyard of collection_check_boxes code attempts:
+<!-- <p>I want line 28 to generate a list of check_boxes of the team's common songs, and whichever one is picked is the 'song_choice' attribute on performs</p> -->
+  <%# <%= collection_check_boxes(:team, :song_ids, @team.common_songs, :name) do |b| %>
+    <%# <%= b.label %>
+    <%# <%= b.check_box %>
+  <%# <% end %>

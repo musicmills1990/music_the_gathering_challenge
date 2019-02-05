@@ -18,8 +18,14 @@
 @import "bootstrap";
 
 body {
-  padding-top: 70px;
+  background: #111;
+  padding-top: 10px;
   padding-bottom: 30px;
+  color: #f00;
+  font-family: fantasy;
+  background-image: url("Hi Def Light Tree Border.png");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .theme-dropdown .dropdown-menu {
@@ -49,4 +55,64 @@ body {
 .info {
   height: 290px;
   text-align: left;
+}
+
+#nav a {
+      background: white;
+      height: 28px;
+      width: 130px;
+      font-family: "Book Antiqua";
+      font-size: 20px;
+      text-align: center;
+      color: #C60;
+      text-decoration: none;
+      background-position: left;
+      margin: auto;
+      display: inline-block;
+      position: relative;
+  }
+
+  .wrapper {
+  background: #ffd700;
+  opacity: 0.8;
+  -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
+  -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
+  box-shadow: 0 0 10px rgba(0,0,0,.3);
+  margin: 10px auto;
+  max-width: 700px;
+  padding: 1.25%; /* 18px / 800px */
+  width: 85%;
+  text-align: center;
+  image-orientation: center;
+}
+
+h1 {
+  font-size: 32px
+}
+
+h2 {
+  font-size: 28px
+}
+
+h3 {
+  font-size: 24px
+}
+
+h4 {
+  font-size: 18px
+}
+
+.branding {
+    border-top: 2px solid #ccc;
+    background: #ffd700;
+    margin-top: 20px;
+    padding-top: 20px;
+    text-align: center;
+    margin: auto;
+    width: 55%;
+  }
+
+image_tag {
+  height: 50px;
+  width: 100px;
 }

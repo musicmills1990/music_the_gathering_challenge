@@ -1,5 +1,6 @@
   <h1><%= @character.name %></h1>
-  <h2>Member Of: <%= @character.description %></h2> 
+  <h2>Member Of: <%= @character.description %></h2>
+  <%= image_tag "#{@character.name}.png", :alt => "#{@character.name}'s card", style: "height: 700px; width: 400px;" %>
 
   <h3>STATS & ABILITIES</h3>
   <li>Rhythmic: <%= @character.rhythm_score %></li>
@@ -13,5 +14,3 @@
   <li><%= song.name %></li>
   <% end %>
   <%= link_to "#{@character.name}'s Comment Page", character_comments_path(@character) %><br>
-
-  <%= image_tag "#{@character.name}.png", :alt => "#{@character.name}'s card" %>

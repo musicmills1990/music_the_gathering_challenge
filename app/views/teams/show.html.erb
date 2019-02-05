@@ -2,13 +2,6 @@
 <% @team.characters.each do |character| %>
 <li><%= character.name %></li>
 <% end %>
-<h2>Songs:</h2>
-<ol>
-  <% @team.common_songs.each do |song|%>
-    <li><%= song %></li>
-    <% end %>
-</ol>
-
 
 <h2>Team Stats</h2>
 <p>Each time <%= @team.name %> performs a song, you will gain:</p>
@@ -18,17 +11,19 @@
 <p>Total Vocal XP: <%= @team.total_comedy_xp %></p>
 <p>Total Comedy XP: <%= @team.total_instrument_xp %></p>
 
-<h2>Mana Cost: <%= @team.total_cost%></h2>
+<h3>Mana Cost: <%= @team.total_cost%></h3>
 
+<h2>Songs Known:</h2>
 <form action="/performs/new" method="post">
   <%= tag(:input, type: "hidden", name: request_forgery_protection_token.to_s, value: form_authenticity_token) %>
   <%= tag(:input, type: "hidden", name: :user_id, value: @current_user.id) %>
   <%= tag(:input, type: "hidden", name: :team_id, value: @team.id) %>
-<!-- <p>I want line 28 to generate a list of check_boxes of the team's common songs, and whichever one is picked is the 'song_choice' attribute on performs</p> -->
-  <%# <%= collection_check_boxes(:team, :song_ids, @team.common_songs, :name) do |b| %>
-    <%# <%= b.label %>
-    <%# <%= b.check_box %>
-  <%# <% end %>
+  <ol>
+  <% @team.common_songs.each do |song| %>
+  <li><label><%= song %></label>
+    <%= tag(:input, type: "radio", name: :song_choice, value: song) %></li><br>
+    <% end %>
+  </ol>
   <input type="submit" value="Perform A Song!">
 </form>
 

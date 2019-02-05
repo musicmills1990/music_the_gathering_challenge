@@ -10,9 +10,7 @@
   </head>
 
 <body>
-  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-      <div class="navbar-header">
+  <div id="nav">
     <% if @current_user %>
       <a class="navbar-brand" href="<%= root_url %>"/>Home</a>
       <a class="navbar-brand" href="<%= characters_path %>"/>Characters</a>
@@ -20,21 +18,18 @@
       <a class="navbar-brand" href="<%= teams_path %>"/>Teams</a>
     <% end %>
       </div>
-    <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
 
-      </ul>
-    </div><!--/.nav-collapse -->
-  </div>
-</div>
+    <div class="wrapper"
+    <h1>Welcome to Music The Gathering Challenge!</h1>
+      <h3>An interactive RenFaire musician fan site</h3><br>
 
-
-<h1>Welcome to <strong>Music The Gathering Challenge!</strong></h1>
-<h2>An interactive RenFaire musician fan site</h2><br>
     <%= yield %>
+    </div>
 
+    <div class="branding">
     <% if @current_user %>
-  <h3><%= link_to "Log Out", signout_path, method: :delete %></h3>
-  <% end %>
+      <h3><%= link_to "Log Out", signout_path, method: :delete %></h3>
+    <% end %>
+    </div>
   </body>
 </html>
