@@ -155,12 +155,12 @@ This is complex and hell! As per usually I've bitten off more than I can handle 
 OKAY. OOF. This is a big project. I think I have the basis of a many-to-many relationship working. The nested route relationship is close to working and I think the lab I have open has a good example to figure out why that's not working exactly. Tommorrow I need to:
   A. [X] Display the information on both sides of the Character and song show pages
   B. [O] Fix the bugs associated with the comments form
-  C. [ ] Start looking at user validation
+  C. [X] Start looking at user validation
   D. [X] Build out the team class and controllers
-  E. [ ] Figure out this fucking scope method thing
-  F. [ ] I'll eventually get to the methods "Perform a song" and "Song Count"
-  G. [ ] OAuth to sign in through facebook
-  G. [ ] Styling!
+  E. [X] Figure out this fucking scope method thing
+  F. [X] I'll eventually get to the methods "Perform a song" and "Song Count"
+  G. [X/0] OAuth to sign in through facebook
+  G. [X] Styling!
 
 
 
@@ -172,7 +172,7 @@ cool! command + / comments out the line!
   - I have the same problem on both the submitting of the teams creation page and the comments add page. So I'm doing something wrong in both places.
 - for a belongs to/has many relationship the user must be valid in order to save information to the child
 - add current user to have team work
--  
+
 
   questions for office hours:
   1. I have the same problem on both the submitting of the teams creation page and the comments add page. So I'm doing something wrong in both places.
@@ -182,7 +182,7 @@ cool! command + / comments out the line!
 Things that still need to happen:
 1. [X] Songs in common method
 2. [X]  Perform that song method
-3. [X/0] Scope method
+3. [X] Scope method
 4. [X] Error messages
 5. [X/0] OAuth
 6. [X] User submittable attr on joins table
@@ -200,28 +200,6 @@ makes sense that this will go in the team model
 
 In order of priority for office hours:
 
-1. Question on perform attribute: "song_choice"
-  A. I have this new attribute to ask the user which song they would like their group to perform, which is finally a joins table user submittable attribute! I need help understanding how to write out a collection_check_boxes tag in my perform_song submit form.
-
-2. Questions about OmniAuth:
+1. Questions about OmniAuth:
   A. My callback to facebook is working but I'm not being logged in. It callsback to the URL "localhost:3000/#_=_".
   B. If a user has to sign up through the site in order to add their "music mana", then what part of the facebook login process allows them to connect with that user profile they've already set up locally?
-
-
-Question about scope method:
-  A. I was able to follow along to the study group example but I can't figure out why it's not adding them in descending order, just the order in which they were added to the DB. Not a huge deal if it works, but it would be cleaner if it was in numeric order.
-
-
-
-
-
-
-New plan for user-submittable attr:
--make an attribute on the newly created join model "perform" and call it something like "song_choice", where a user will click a button of which song they'd like to perform when they use their team. It will then give a message saying "thanks for playing 'perform.song_choice' in the flash(message), which is what I wanted in the first place anyway.
-
-graveyard of collection_check_boxes code attempts:
-<!-- <p>I want line 28 to generate a list of check_boxes of the team's common songs, and whichever one is picked is the 'song_choice' attribute on performs</p> -->
-  <%# <%= collection_check_boxes(:team, :song_ids, @team.common_songs, :name) do |b| %>
-    <%# <%= b.label %>
-    <%# <%= b.check_box %>
-  <%# <% end %>
