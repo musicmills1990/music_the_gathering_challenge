@@ -1,0 +1,3 @@
+<% @songs.each do |song| %>
+<li> <%= song.characters.sum(&:character_count) %> characters know <%= link_to song.name, song_path(song) %></li>
+<% end %>

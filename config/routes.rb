@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/signout', to: 'sessions#destroy'
   get '/auth/facebook/callback' => 'sessions#create_from_omniauth'
+  get '/most_well_known', to: 'songs#most_well_known'
 
 
 

@@ -17,6 +17,10 @@ class SongsController < ApplicationController
     end
   end
 
+  def most_well_known
+    @songs = Song.most_well_known
+  end
+
   def show
     @song = Song.find(params[:id])
   end

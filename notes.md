@@ -182,9 +182,9 @@ cool! command + / comments out the line!
 Things that still need to happen:
 1. [X] Songs in common method
 2. [X]  Perform that song method
-3. [ ] Scope method
+3. [X/0] Scope method
 4. [X] Error messages
-5. [ ] OAuth
+5. [0] OAuth
 6. [ ] User submittable attr on joins table
 
 
@@ -194,3 +194,11 @@ songs in common method
 -each character has access to the songs they know
 -logic could say "take a team (object), grab the three characters, then grab all the songs they know. Then remove all the songs that are not known by all three characters..."
 makes sense that this will go in the team model
+
+
+
+
+
+Questions about OmniAuth:
+1. After following the steps and trying to be sure that it doesn't mess up my sessions controller's normal #create method, I don't understand why the route "/auth/facebook/" needs a get route, since it should hit the facebook page's site and give them the option to log in and redirecting back to /auth/facebook/callback.
+2. If a user has to sign up through the site in order to add their "music mana", then what part of the facebook login process allows them to connect with that user profile they've already set up locally?
