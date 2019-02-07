@@ -203,3 +203,7 @@ In order of priority for office hours:
 1. Questions about OmniAuth:
   A. My callback to facebook is working but I'm not being logged in. It callsback to the URL "localhost:3000/#_=_".
   B. If a user has to sign up through the site in order to add their "music mana", then what part of the facebook login process allows them to connect with that user profile they've already set up locally?
+
+
+Final thoughts:
+1. I need to refactor that common_songs method now, especially since it's not REALLY working properly when you choose more than 3 characters (it brings up buttons and allows characters to perform but its sometimes not accurate)
