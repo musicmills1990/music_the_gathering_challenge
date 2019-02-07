@@ -1,4 +1,7 @@
 class CharactersController < ApplicationController
+ before_action :require_logged_in
+
+
   def index
     @characters = Character.all
   end

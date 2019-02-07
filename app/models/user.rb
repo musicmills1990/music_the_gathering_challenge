@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
   validates :email, presence: true, uniqueness: true
-  validates :music_mana, presence: true
+  #validates :music_mana, presence: true
 
   #has_many :teams
   has_many :characters, through: :teams

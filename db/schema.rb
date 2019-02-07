@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2019_02_05_175030) do
   create_table "character_teams", force: :cascade do |t|
     t.integer "character_id"
     t.integer "team_id"
+    t.integer "team_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -55,9 +56,9 @@ ActiveRecord::Schema.define(version: 2019_02_05_175030) do
   end
 
   create_table "songs", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
     t.string "category"
   end
 
