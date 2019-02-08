@@ -5,11 +5,15 @@
   <h1>Welcome, <%= @user.name%>!</h1>
   <h2>Your Music Mana: <%= @user.music_mana%></h2>
   <h2>Level: <%= @user.level %></h2>
+  <% if @user.level == "Ultimate Music The Gathering Master" %>
+    <p>Congrats! Your Level is at MAXIMUM POWER!! But feel free to keep playing your teams!</p>
+    <% end %>
   <br>
   <h1>STATS & ABILITIES</h1>
   <h2>Rhythmic: <%= @user.rhythm_xp%> XP</h2>
   <h2>Instrumental: <%= @user.instrument_xp%> XP</h2>
   <h2>Vocal: <%= @user.vocal_xp%> XP</h2>
   <h2>Comedic: <%= @user.comedy_xp%> XP</h2>
+  <h1>Total: <%= @user.user_total_xp %> XP</h1>
 
 <p>Get any 100 XP points to move up to the next level!</p>

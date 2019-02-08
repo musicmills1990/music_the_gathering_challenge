@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  before_action :require_logged_in, except: [:new, :create]
+  before_action :require_logged_in, except: :create
 
   def index
     if logged_in?

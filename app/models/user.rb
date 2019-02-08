@@ -10,17 +10,21 @@ class User < ApplicationRecord
 
 
   def level
-    total_xp = self.rhythm_xp + self.instrument_xp + self.vocal_xp + self.comedy_xp
-    if total_xp < 100
+    if user_total_xp < 100
       "Novice"
-    elsif total_xp.between?(100, 200)
+    elsif user_total_xp.between?(100, 200)
       "Apprentice"
-    elsif total_xp.between?(200, 300)
+    elsif user_total_xp.between?(200, 300)
       "Traveling Bard"
-    elsif total_xp.between?(300, 400)
+    elsif user_total_xp.between?(300, 400)
       "Music Master"
-    elsif total_xp > 400
+    elsif user_total_xp > 400
       "Ultimate Music The Gathering Master"
     end
   end
+
+  def user_total_xp
+    self.rhythm_xp + self.instrument_xp + self.vocal_xp + self.comedy_xp
+  end
+
 end

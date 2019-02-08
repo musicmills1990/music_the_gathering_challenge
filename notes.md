@@ -200,10 +200,15 @@ makes sense that this will go in the team model
 
 In order of priority for office hours:
 
-1. Questions about OmniAuth:
+1.[X] Questions about OmniAuth:
   A. My callback to facebook is working but I'm not being logged in. It callsback to the URL "localhost:3000/#_=_".
   B. If a user has to sign up through the site in order to add their "music mana", then what part of the facebook login process allows them to connect with that user profile they've already set up locally?
 
 
 Final thoughts:
-1. I need to refactor that common_songs method now, especially since it's not REALLY working properly when you choose more than 3 characters (it brings up buttons and allows characters to perform but its sometimes not accurate)
+1.
+  A. I need to refactor that common_songs method now, especially since it's not REALLY working properly when you choose more than 3 characters (it brings up buttons and allows characters to perform but its sometimes not accurate)
+  B. I need a validation for Team like "validates :characters, length: {is: 3}", so that you can't choose more than 3 characters for a team, but since characters is not an attribute of Team I'm not sure how to do it....
+
+2. I removed accepts_nested_attributes_for from comments model, after reading more about it, it didn't seem necessary, and when I commented it out, the comments page is still fully functional.
+3. Although users can see each others comments, I would like to have a "written by user.username" line underneath each one but I need to build logic in the controller related to @current_user

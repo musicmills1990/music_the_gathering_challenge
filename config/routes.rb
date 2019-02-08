@@ -3,12 +3,12 @@ Rails.application.routes.draw do
   post 'performs/new', to: 'performs#new'
   get 'welcome/home'
   root "welcome#home"
-  resources :users
-  resources :teams
-  resources :songs
+  resources :users, except: [:edit, :update, :destroy]
+  resources :teams, except: [:edit, :update, :destroy]
+  resources :songs, except: [:edit, :update]
 
-  resources :characters do
-    resources :comments
+  resources :characters, only: [:index, :show] do
+    resources :comments, only: [:index, :create, :new]
   end
 
   get '/login' => "sessions#new"
@@ -19,5 +19,4 @@ Rails.application.routes.draw do
 
 
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
