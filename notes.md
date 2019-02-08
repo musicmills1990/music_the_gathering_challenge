@@ -212,3 +212,5 @@ Final thoughts:
 
 2. I removed accepts_nested_attributes_for from comments model, after reading more about it, it didn't seem necessary, and when I commented it out, the comments page is still fully functional.
 3. Although users can see each others comments, I would like to have a "written by user.username" line underneath each one but I need to build logic in the controller related to @current_user
+
+4. Very interesting...if I add the required_logged_in helper method on users#show page, I am able to "perform" a song and it runs the functions to affect the user's stats, but instead of displaying the message "boom! Team just collaborated..." it says "must be logged in to view this page". Not sure why considering the person is logged in when that happens... but if I remove it I leave the person's profile to URL hacking.
