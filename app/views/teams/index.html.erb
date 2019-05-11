@@ -1,10 +1,10 @@
 <h3>Build A Team to play the MTG Challenge!</h3>
 <p>Take members of any band (preferably 3 characters), see what songs they can collaborate on and have them perform it for the first time ever to gain experience points and level up!</p>
 <h1>Your Favorie Teams</h1>
+
 <% @teams.each do |team| %>
-  <% if team.user == @current_user %>
-    <li><%= link_to team.name, team_path(team)%></li>
-  <% end %>
+  <li><%= link_to team.name, team_path(team)%></li>
 <% end %>
+
 <br><br>
 <%= link_to "Create a New Team!!!!", new_team_path %>

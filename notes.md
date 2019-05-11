@@ -214,3 +214,24 @@ Final thoughts:
 3. Although users can see each others comments, I would like to have a "written by user.username" line underneath each one but I need to build logic in the controller related to @current_user
 
 4. Very interesting...if I add the required_logged_in helper method on users#show page, I am able to "perform" a song and it runs the functions to affect the user's stats, but instead of displaying the message "boom! Team just collaborated..." it says "must be logged in to view this page". Not sure why considering the person is logged in when that happens... but if I remove it I leave the person's profile to URL hacking.
+
+
+
+<!-- 1. pull a rails view over using ajax,
+2.create that html in a custom js function,
+3. use a handlebar template and park your html
+on an html page and refer to it using handlebar tags-->
+
+
+PLANS FOR ADDING DOM MANIPULATION FEATURES TO THIS PROJECT
+
+1. Index page: the songs list appears upon clicking the top button without refreshing the page
+2. Show page: the character show page appears upon clicking on the link from the index page without refreshing the page
+3. Has-many relationship: This can be the comments on each character page can be added without a refresh 
+4. Submitting a form: I would like to submit the new song form via Ajax so that the new form opens up when you click “add a new song” on the song index page, then when you submit it adds that dynamically to the index page above 
+<-- 4 could be simpler if you first refactor the new song page onto the songs index page like how you have it for the comments form, rather than adding another ajax script to pull that on for you. -->
+
+need to:
+generate serializers
+add active record serializer gem to my gemfile
+read other examples to understand how class objects will be used for your project
