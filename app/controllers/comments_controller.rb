@@ -9,13 +9,12 @@ before_action :current_user, except: :create
 
   def create
     @character = Character.find_by(id: params[:character_id])
-    @comment = Comment.new(comment_params)
-    @comment.character = @character
-    if @comment.save
-      redirect_to character_comments_path
-    else
-      redirect_to new_character_comment_path
-    end
+    @comment = @character.comments.build(comment_params)
+
+    #@comment = Comment.new(comment_params)
+    #@comment.character = @character
+    @comment.save
+    redirect_to character_comments_path
   end
 
   def index

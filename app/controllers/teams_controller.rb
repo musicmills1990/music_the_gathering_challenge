@@ -2,11 +2,7 @@ class TeamsController < ApplicationController
   before_action :require_logged_in, except: :create
 
   def index
-    if logged_in?
-      @teams = Team.all
-    else
-      redirect_to root_path
-    end
+    @teams = Team.all
   end
 
   def new
