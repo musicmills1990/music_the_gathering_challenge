@@ -5,6 +5,10 @@ class SongsController < ApplicationController
     @songs = Song.all
     @song = Song.new
     @characters = Character.all
+    respond_to do |f|
+      f.html
+      f.json {render json: @songs}
+    end
   end
 
   def new
