@@ -12,6 +12,10 @@ class CharactersController < ApplicationController
 
   def show
     @character = Character.find(params[:id])
+    respond_to do |f|
+      f.html
+      f.json {render json: @character}
+    end
   end
 
 end
