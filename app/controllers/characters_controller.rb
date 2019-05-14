@@ -4,6 +4,10 @@ class CharactersController < ApplicationController
 
   def index
     @characters = Character.all
+    respond_to do |f|
+      f.html
+      f.json {render json: @characters}
+    end
   end
 
   def show

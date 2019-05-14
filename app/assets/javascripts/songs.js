@@ -1,9 +1,9 @@
 $(() => {
-  hoverHandlers()
+  songHoverHandlers()
 })
 
-const hoverHandlers = () => {
-  $("#songs-index").on('click', (e) => {
+const songHoverHandlers = () => {
+  $("#songs-index").hover(e => {
     e.preventDefault();
     fetch(`/songs.json`)
       .then(res => res.json())
