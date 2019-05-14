@@ -11,7 +11,8 @@ const hoverHandlers = () => {
         $("#app-container.wrapper").html('')
         songs.forEach((song) => {
           let newSong = new Song(song)
-          console.log(newSong)
+          let songHtml = newSong.formatIndex();
+          $("#app-container.wrapper").append(songHtml)
       })
     })
   });
@@ -22,4 +23,11 @@ function Song(song) {
   this.category = song.category
   this.character_songs = song.character_songs
   this.characters = song.characters
+}
+
+Song.prototype.formatIndex = function(){
+  let songHtml = `
+  <h1>${this.name}</h1>
+  `
+  return songHtml
 }
