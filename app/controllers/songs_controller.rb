@@ -3,11 +3,11 @@ class SongsController < ApplicationController
 
   def index
     @songs = Song.all
+    @song = Song.new
+    @characters = Character.all
   end
 
   def new
-    @song = Song.new
-    @characters = Character.all
   end
 
   def create
