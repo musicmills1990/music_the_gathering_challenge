@@ -1,5 +1,10 @@
-$(document).on('turbolinks:load', function () {
-  $("#songs-idex").on('hover', function(e){
-    console.log(e);
-  });
+$(() => {
+  hoverHandlers()
 })
+
+const hoverHandlers = () => {
+  $("#songs-index").hover(function(e){
+    console.log(e);
+    console.log("hey it's working!")
+  });
+};
