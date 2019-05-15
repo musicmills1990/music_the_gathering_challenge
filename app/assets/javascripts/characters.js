@@ -2,6 +2,7 @@ $(() => {
   characterHoverHandlers()
 })
 
+//-----character index page using fetch() ----
 const characterHoverHandlers = () => {
   $("#characters-index").hover(e => {
     e.preventDefault();
@@ -17,7 +18,7 @@ const characterHoverHandlers = () => {
       })
     })
   });
-
+//-----character show page using fetch() ----
   $(document).on("click", ".character-js", function(e) {
     e.preventDefault();
     let id = ($(this).attr('data-id'));
@@ -42,6 +43,7 @@ function Character(character) {
   this.vocal_score = character.vocal_score
   this.comedy_score = character.comedy_score
   this.music_mana_cost = character.music_mana_cost
+  this.songs = character.songs
 }
 
 Character.prototype.formatIndex = function(){
@@ -64,6 +66,7 @@ Character.prototype.formatShow = function(){
 
     <li><strong>Cost to play: ${this.music_mana_cost}</strong></li>
     <h3>Songs Known:</h3>
+    <li>${this.songs}</li>
     <p> how do I iterate over the character's songs for this? </p>
     <a href="/characters/${this.id}/comments">${this.name}'s Comment Page</a>
   `

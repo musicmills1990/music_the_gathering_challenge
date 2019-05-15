@@ -17,7 +17,7 @@
 
 
 <h1>Add A New Song</h1>
-<%= form_for @song do |t| %>
+<%= form_for @song, :html => {id: "new-song-form"} do |t| %>
   <%= t.label :Song_Name %>
   <%= t.text_field :name %><br>
 

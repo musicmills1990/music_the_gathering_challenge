@@ -235,3 +235,13 @@ need to:
 generate serializers
 add active record serializer gem to my gemfile
 read other examples to understand how class objects will be used for your project
+
+
+
+Okay update 7:20pm on 5/14/19:
+1. index page JS manipulation: working pretty well, just needs to figure out how to add the title "Characters" above the list.
+2. show page, not sure how to dynamically add the image, not sure how to iterate properly to recieve the songs known attribute.
+3. has-many relationship: haven't tackled yet, figured if I could get the song form to submit then I could follow the same format
+4. since I want to just hijack the form on the songs index page and i don't want to redraw the entire songs dom just so that I'm in the same format as the characters page (which is how the study group example is constructed), I can't figure out what I need to do to snag that form submission.
+
+I think I'm following ES6 guidelines and stuff so that shouldn't be a problem.

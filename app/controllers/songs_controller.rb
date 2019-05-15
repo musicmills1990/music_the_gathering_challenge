@@ -8,6 +8,7 @@ class SongsController < ApplicationController
     respond_to do |f|
       f.html
       f.json {render json: @songs}
+      f.json {render json: @song}
     end
   end
 
@@ -17,7 +18,8 @@ class SongsController < ApplicationController
   def create
     @song = Song.create(song_params)
     if @song.save
-      redirect_to song_path(@song)
+      #redirect_to song_path(@song)
+      render json: @song
     else
       render :new
     end
