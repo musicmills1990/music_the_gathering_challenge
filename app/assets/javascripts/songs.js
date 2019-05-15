@@ -1,20 +1,30 @@
 $(() => {
-  songClickHandlers()
+  songClickHandler()
+  newSongFormHandler()
 })
 
 //-----song index page using ajax() ----
-const songClickHandlers = () => {
+const songClickHandler = () => {
   $("#songs-index").on("click", e => {
     e.preventDefault();
     getSongs();
   });
 }
+
+const newSongFormHandler = () => {
+  $("form#new-song-form.new_song").on("submit", e => {
+    e.preventDefault();
+    console.log("hey it worked i stopped.")
+  });
+}
+
 function getSongs(){
   $.ajax({
     url: '/songs',
     method: 'get',
     dataType: 'json'
   }).done(songs => {
+    console.log('the data is: ', songs)
       $("#app-container.wrapper").html('')
       $("#app-container.wrapper").append(headers)
       songs.forEach((song) => {
@@ -27,6 +37,44 @@ function getSongs(){
 }
 
 const headers = `<h1>Songs and Tunes</h1>`
+
+//same thing as what's below it's just sweeter syntactically (I think)
+// function Song(song){
+//   this.id = song.id
+//   this.name = song.name
+//   this.category = song.category
+// }
+
+class Song {
+  constructor(song) {
+    this.id = song.id
+    this.name = song.name
+    this.category = song.category
+  }
+}
+
+Song.prototype.formatIndex = function(){
+  let songHtml = `
+  <li><a href = "/songs/${this.id}">${this.name}</a></li>
+  `
+  return songHtml
+}
+
+// Song.prototype.submitSong = function (){
+//   $("#new-song-form").on("submit", function(e){
+//         e.preventDefault
+//         console.log("submitting new song")
+//         const values = $(this).serialize()
+//         $.post('/songs', values)
+//           .done(function(data){
+//             $("#app-container.wrapper").html('')
+//             const newSong = new Song(data)
+//             const htmlToAdd = newSong.formatIndex()
+//             $("#app-container.wrapper").html(htmlToAdd)
+//           })
+//       });
+// }
+
 //I just grabbed the html from my working rails page. I'm sure this could be massively refactored but I want to get the form submission working....//
 const newForm = `
 <h2>Add A New Song</h2>
@@ -79,40 +127,3 @@ const newForm = `
       <input type="checkbox" value="91" name="song[character_ids][]" id="song_character_ids_91"><br>
   <input type="submit" name="commit" value="Add Song" data-disable-with="Add Song">
 </form>`
-
-//same thing as what's below it's just sweeter syntactically (I think)
-// function Song(song){
-//   this.id = song.id
-//   this.name = song.name
-//   this.category = song.category
-// }
-
-class Song {
-  constructor(song) {
-    this.id = song.id
-    this.name = song.name
-    this.category = song.category
-  }
-}
-
-Song.prototype.formatIndex = function(){
-  let songHtml = `
-  <li><a href = "/songs/${this.id}">${this.name}</a></li>
-  `
-  return songHtml
-}
-
-// Song.prototype.submitSong = function (){
-//   $("#new-song-form").on("submit", function(e){
-//         e.preventDefault
-//         console.log("submitting new song")
-//         const values = $(this).serialize()
-//         $.post('/songs', values)
-//           .done(function(data){
-//             $("#app-container.wrapper").html('')
-//             const newSong = new Song(data)
-//             const htmlToAdd = newSong.formatIndex()
-//             $("#app-container.wrapper").html(htmlToAdd)
-//           })
-//       });
-// }
