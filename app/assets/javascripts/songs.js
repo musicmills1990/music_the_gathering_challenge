@@ -2,28 +2,31 @@ $(() => {
   songClickHandlers()
 })
 
-//-----song index page using fetch() ----
+//-----song index page using ajax() ----
 const songClickHandlers = () => {
   $("#songs-index").on("click", e => {
     e.preventDefault();
-  //  history.pushState(null, null, "characters") <-- creates route /users/characters, which isn't helpful.
-    fetch(`/songs.json`)
-      .then(res => res.json())
-      .then(songs => {
-        $("#app-container.wrapper").html('')
-        $("#app-container.wrapper").append(headers)
-        songs.forEach((song) => {
-          let newSong = new Song(song)
-          let songHtml = newSong.formatIndex();
-          $("#app-container.wrapper").append(songHtml)
-      })
-      $("#app-container.wrapper").append(newForm)
-    })
+    getSongs();
   });
 }
-const headers = `
-<h1>Songs and Tunes</h1>
-`
+function getSongs(){
+  $.ajax({
+    url: '/songs',
+    method: 'get',
+    dataType: 'json'
+  }).done(songs => {
+      $("#app-container.wrapper").html('')
+      $("#app-container.wrapper").append(headers)
+      songs.forEach((song) => {
+        let newSong = new Song(song)
+        let songHtml = newSong.formatIndex();
+        $("#app-container.wrapper").append(songHtml)
+    })
+    $("#app-container.wrapper").append(newForm)
+  })
+}
+
+const headers = `<h1>Songs and Tunes</h1>`
 //I just grabbed the html from my working rails page. I'm sure this could be massively refactored but I want to get the form submission working....//
 const newForm = `
 <h2>Add A New Song</h2>
@@ -98,3 +101,18 @@ Song.prototype.formatIndex = function(){
   `
   return songHtml
 }
+
+// Song.prototype.submitSong = function (){
+//   $("#new-song-form").on("submit", function(e){
+//         e.preventDefault
+//         console.log("submitting new song")
+//         const values = $(this).serialize()
+//         $.post('/songs', values)
+//           .done(function(data){
+//             $("#app-container.wrapper").html('')
+//             const newSong = new Song(data)
+//             const htmlToAdd = newSong.formatIndex()
+//             $("#app-container.wrapper").html(htmlToAdd)
+//           })
+//       });
+// }
