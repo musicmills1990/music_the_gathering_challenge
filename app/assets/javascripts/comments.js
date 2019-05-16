@@ -9,7 +9,6 @@ const commentSubmitHandler = () => {
       url: this.action,
       data: $(this).serialize(),
       success: function(res){
-        debugger
         $("input#comment_name").val("")
         let $li = $("div.comment-js")
         $li.append(res);
