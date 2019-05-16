@@ -1,8 +1,9 @@
 <h2><%= @character.name%>'s Comments:</h2>
-
+<div class="comment-js">
 <% @character.comments.each do |comment| %>
   <h3><%= comment.name %></h3>
 <% end %>
+</div>
 
 <h1>New Comment</h1>
 <%= form_for @comment, url: character_comments_path, method: :post do |t| %>
