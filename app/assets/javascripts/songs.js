@@ -1,15 +1,15 @@
 $(() => {
-  // songClickHandler()
   newSongFormHandler()
+  songClickHandler()
 })
 
 //-----song index page using ajax() ----
-// const songClickHandler = () => {
-//   $("#songs-index").on("click", e => {
-//     e.preventDefault();
-//     getSongs();
-//   });
-// }
+const songClickHandler = () => {
+  $("#songs-index").on("click", e => {
+    e.preventDefault();
+    getSongs();
+  });
+}
 
 const newSongFormHandler = () => {
   $("form#new-song-form.new_song").on("submit", function(e) {
@@ -18,31 +18,31 @@ const newSongFormHandler = () => {
     const values = $(this).serialize()
     $.post('/songs', values)
     .done(function(data){
-      $("#app-container.wrapper").html('')
+      $("#app-container.wrapper").html('Working, now I just need to repaint the DOM')
 
     })
   })
 }
 
-// function getSongs(){
-//   $.ajax({
-//     url: '/songs',
-//     method: 'get',
-//     dataType: 'json'
-//   }).done(songs => {
-//     console.log('the data is: ', songs)
-//       $("#app-container.wrapper").html('')
-//       $("#app-container.wrapper").append(headers)
-//       songs.forEach((song) => {
-//         let newSong = new Song(song)
-//         let songHtml = newSong.formatIndex();
-//         $("#app-container.wrapper").append(songHtml)
-//     })
-//     $("#app-container.wrapper").append(newForm)
-//   })
-// }
+function getSongs(){
+  $.ajax({
+    url: '/songs',
+    method: 'get',
+    dataType: 'json'
+  }).done(songs => {
+    console.log('the data is: ', songs)
+      $("#app-container.wrapper").html('')
+      $("#app-container.wrapper").append(headers)
+      songs.forEach((song) => {
+        let newSong = new Song(song)
+        let songHtml = newSong.formatIndex();
+        $("#app-container.wrapper").append(songHtml)
+    })
+    $("#app-container.wrapper").append(addSongLink)
+  })
+}
 
-//const headers = `<h1>Songs and Tunes</h1>`
+const headers = `<h1>Songs and Tunes</h1>`
 
 //same thing as what's below it's just sweeter syntactically (I think)
 // function Song(song){
@@ -66,7 +66,9 @@ Song.prototype.formatIndex = function(){
   return songHtml
 }
 
-
+const addSongLink = `
+<h3><a href="songs/new">Add A New Song</a></h3>
+`
 //I just grabbed the html from my working rails page. I'm sure this could be massively refactored but I want to get the form submission working....//
 // const newForm = `
 // <h2>Add A New Song</h2>

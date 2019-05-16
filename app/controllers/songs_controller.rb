@@ -3,16 +3,15 @@ class SongsController < ApplicationController
 
   def index
     @songs = Song.all
-    @song = Song.new
-    @characters = Character.all
     respond_to do |f|
       f.html
       f.json {render json: @songs}
-      f.json {render json: @song}
     end
   end
 
   def new
+    @song = Song.new
+    @characters = Character.all
   end
 
   def create
