@@ -7,6 +7,7 @@ $(() => {
 const songClickHandler = () => {
   $(".navbar-brand#songs-index").on("click", e => {
     e.preventDefault();
+    history.pushState(null, null, "http://localhost:3000") //creates route /users/characters, which isn't helpful.
     getSongs();
   });
 }
@@ -14,9 +15,11 @@ const songClickHandler = () => {
 const newSongFormHandler = () => {
   $("form#new-song-form.new_song").on("submit", function(e) {
     e.preventDefault();
+    history.pushState(null, null, "http://localhost:3000") //creates route /users/characters, which isn't helpful.
     const values = $(this).serialize()
     $.post('/songs', values)
     .done(function(data){
+      console.log(data)
       $("#app-container.wrapper").html('Working, now I just need to repaint the DOM')
       let $tune_div = $("div#tune_new_song")
       let $song_div = $("div#song_new_song")
@@ -32,7 +35,6 @@ function getSongs(){
     method: 'get',
     dataType: 'json'
   }).done(songs => {
-    console.log('the data is: ', songs)
       $("#app-container.wrapper").html('')
       $("#app-container.wrapper").append(headers)
       songs.forEach((song) => {

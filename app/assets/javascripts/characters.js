@@ -5,7 +5,7 @@ $(() => {
 const characterHoverHandlers = () => {
   $("#characters-index").hover(e => {
     e.preventDefault();
-  //  history.pushState(null, null, "characters") <-- creates route /users/characters, which isn't helpful.
+    history.pushState(null, null, "http://localhost:3000") //creates route /users/characters, which isn't helpful.
     fetch(`/characters.json`)
       .then(res => res.json())
       .then(characters => {
@@ -21,6 +21,7 @@ const characterHoverHandlers = () => {
 //-----character show page using fetch() ----
   $(document).on("click", ".character-js", function(e) {
     e.preventDefault();
+    history.pushState(null, null, "http://localhost:3000") //creates route /users/characters, which isn't helpful.
     let id = ($(this).attr('data-id'));
     fetch(`/characters/${id}.json`)
       .then(res => res.json())
