@@ -19,7 +19,7 @@ class SongsController < ApplicationController
     @song = Song.create(song_params)
     if @song.save
       #redirect_to song_path(@song)
-      render json: @song
+      render json: @song, status: 201
     else
       render :new
     end
