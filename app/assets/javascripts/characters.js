@@ -1,11 +1,12 @@
 $(() => {
   characterHoverHandlers()
 })
+
 //-----character index page using fetch() ----
 const characterHoverHandlers = () => {
   $("#characters-index").on('click',e => {
     e.preventDefault();
-    history.pushState(null, null, "http://localhost:3000") //creates route /users/characters, which isn't helpful.
+    history.pushState(null, null, "http://localhost:3000") //if I make the third argument "characters" as per the video example, it creates route /users/characters, which isn't helpful.
     fetch(`/characters.json`)
       .then(res => res.json())
       .then(characters => {
@@ -18,6 +19,7 @@ const characterHoverHandlers = () => {
       })
     })
   });
+
 //-----character show page using fetch() ----
   $(document).on("click", ".character-js", function(e) {
     e.preventDefault();
@@ -72,10 +74,3 @@ Character.prototype.formatShow = function(){
 }
 
 const pageHeader = '<h1>Characters</h1>'
-
-
-//can't get any of this in the show page because it's complicated and not required
-// <h4>!!!Need to add picture here!!!!</h4>
-// <h3>Songs Known:</h3>
-// <li>${this.songs}</li>
-// <p> how do I iterate over the character's songs for this? </p>

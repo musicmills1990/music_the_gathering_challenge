@@ -7,7 +7,7 @@ $(() => {
 const songClickHandler = () => {
   $(".navbar-brand#songs-index").on("click", e => {
     e.preventDefault();
-    history.pushState(null, null, "http://localhost:3000") //creates route /users/characters, which isn't helpful.
+    history.pushState(null, null, "http://localhost:3000") //if I make the third argument "characters" as per the video example, it creates route /users/characters, which isn't helpful.
     getSongs();
   });
 }
@@ -33,7 +33,7 @@ function getSongs(){
 const newSongFormHandler = () => {
   $("form#new-song-form.new_song").on("submit", function(e) {
     e.preventDefault();
-    history.pushState(null, null, "http://localhost:3000") //creates route /users/characters, which isn't helpful.
+    history.pushState(null, null, "http://localhost:3000")
     const values = $(this).serialize()
     $.post('/songs', values)
     .done(function(data){
@@ -49,13 +49,6 @@ const newSongFormHandler = () => {
 
 
 const headers = `<h1>Songs and Tunes</h1>`
-
-//same thing as what's below it's just sweeter syntactically (I think)
-// function Song(song){
-//   this.id = song.id
-//   this.name = song.name
-//   this.category = song.category
-// }
 
 class Song {
   constructor(song) {
