@@ -3,7 +3,9 @@ $(() => {
 })
 
 const commentSubmitHandler = () => {
-  $("form.new_comment#new_comment").on("submit", function(e){
+  $("form.new_comment#new_comment").submit(function(e){
+    e.preventDefault();
+    history.pushState(null, null, "http://localhost:3000")
     $.ajax({
       type: "POST",
       url: this.action,
@@ -16,8 +18,7 @@ const commentSubmitHandler = () => {
         $li.append(commentHtml);
       }
     })
-    e.preventDefault();
-    history.pushState(null, null, "http://localhost:3000")
+    //some kind of refresh the button function?
   })
 }
 
@@ -31,7 +32,7 @@ class Comment {
 
 Comment.prototype.formatCommentPage = function(){
   let commentHtml = `
-  <li>${this.name}</li>
+  <h3>${this.name}</h3>
   `
   return commentHtml
 }

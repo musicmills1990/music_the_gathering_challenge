@@ -12,23 +12,6 @@ const songClickHandler = () => {
   });
 }
 
-const newSongFormHandler = () => {
-  $("form#new-song-form.new_song").on("submit", function(e) {
-    e.preventDefault();
-    history.pushState(null, null, "http://localhost:3000") //creates route /users/characters, which isn't helpful.
-    const values = $(this).serialize()
-    $.post('/songs', values)
-    .done(function(data){
-      console.log(data)
-      $("#app-container.wrapper").html('Working, now I just need to repaint the DOM')
-      let $tune_div = $("div#tune_new_song")
-      let $song_div = $("div#song_new_song")
-      $tune_div.append(data);
-      $song_div.append(data);
-    })
-  })
-}
-
 function getSongs(){
   $.ajax({
     url: '/songs',
@@ -46,6 +29,24 @@ function getSongs(){
       $("#app-container.wrapper").append(addSongLink)
   })
 }
+
+const newSongFormHandler = () => {
+  $("form#new-song-form.new_song").on("submit", function(e) {
+    e.preventDefault();
+    history.pushState(null, null, "http://localhost:3000") //creates route /users/characters, which isn't helpful.
+    const values = $(this).serialize()
+    $.post('/songs', values)
+    .done(function(data){
+      $("#app-container.wrapper").html('')
+      // getSongs();//put the new data OR
+      let newSong = new Song(data)
+      let songHtml = newSong.submitNewSong();
+      $("#app-container.wrapper").html(songHtml)
+      //but for UX design I would way rather have the first option...
+    })
+  })
+}
+
 
 const headers = `<h1>Songs and Tunes</h1>`
 
@@ -69,6 +70,15 @@ Song.prototype.formatIndex = function(){
   <li><a href = "/songs/${this.id}">${this.name}</a></li>
   </div>`
   return songHtml
+}
+
+Song.prototype.submitNewSong = function(){
+  let newSongHtml = `
+  <p>Congrats! You added a new song!</p>
+  <h1>${this.name}</h1>
+  <h2>${this.category}</h2>
+  `
+  return newSongHtml
 }
 
 const mostWellKnownLink = `

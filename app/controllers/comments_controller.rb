@@ -14,8 +14,8 @@ before_action :current_user, except: :create
     #@comment = Comment.new(comment_params)
     #@comment.character = @character
     @comment.save
-    redirect_to character_comments_path
-    # render json: @comment
+    #redirect_to character_comments_path
+     render json: @comment
   end
 
   def index

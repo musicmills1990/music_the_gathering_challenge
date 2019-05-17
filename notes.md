@@ -245,3 +245,30 @@ Okay update 7:20pm on 5/14/19:
 4. since I want to just hijack the form on the songs index page and i don't want to redraw the entire songs dom just so that I'm in the same format as the characters page (which is how the study group example is constructed), I can't figure out what I need to do to snag that form submission.
 
 I think I'm following ES6 guidelines and stuff so that shouldn't be a problem.
+
+
+
+
+
+
+Notes and problems as of 3:48pm on 5/16/2019
+
+GENERAL ISSUE:
+[X] ******fixed with pushState and just used the localhost:3000**** Routes sometimes get messed up after clicking around for a while.
+
+
+
+1.Index: Characters page
+-characters page should probably be switched to a click event since you can still access that click event (but it's helpful to have access to the rails page for now)
+-the forEach loop doesn't allow me to number the list of names properly, so right now only bullet points
+2.Show: Character individual pages
+-can't figure out how to load pictures from the local path dynamically in JS
+-can't figure out how to iterate over the array of "songs known" by a character (displayed on the page as objectobjectobject right now)
+3. Submit Form: Adding a new song via Ajax
+-I'm receiving the info via ajax and have it in JSON but I can't figure out how to repopulate the DOM given that the songs index page is also an JS generated page
+4. Has many relationship: Adding comments to a character's comment page
+<!-- -It for some reason is receiving the entire page (including the newly submitted comment so I guess that's good) and appending that to the page instead of just a single comment.
+*****update****** I figured since the res is too much information but the info I want is in there, I tried following the pattern to get just the new comment li to append to the list by creating comment constructor objects and creating a prototype method with just the "name" of the comment (which is really just the content). I'm much closer! It's just appending undefined for now, but when the page is refreshed the new comment is there...
+*****another update*****
+I got it! I just had to change the controller back to render json -->
+-the button is clicked/unclickable after I submit the comment

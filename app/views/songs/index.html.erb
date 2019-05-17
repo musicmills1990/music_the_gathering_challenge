@@ -1,6 +1,7 @@
 <h1>Songs and Tunes</h1>
 
 <h2>Tunes (Instrumental)</h2>
+
 <div id="tune_new_song">
 <% @songs.each do |song| %>
   <% if song.category == "Tune" %>
@@ -11,6 +12,7 @@
 
 
 <h2>Songs (Vocal and/or Comedy)</h2>
+
 <div id="song_new_song">
 <% @songs.each do |song| %>
   <% if song.category == "Song" %>
@@ -18,5 +20,6 @@
   <% end %>
 <% end %>
 </div>
+
 <h2><%= link_to "Most Well known songs", "/most_well_known" %></h2>
 <h3><%= link_to "Add A New Song", "/songs/new" %></h3>

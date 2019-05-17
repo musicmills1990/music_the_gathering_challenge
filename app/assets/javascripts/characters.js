@@ -3,7 +3,7 @@ $(() => {
 })
 //-----character index page using fetch() ----
 const characterHoverHandlers = () => {
-  $("#characters-index").hover(e => {
+  $("#characters-index").on('click',e => {
     e.preventDefault();
     history.pushState(null, null, "http://localhost:3000") //creates route /users/characters, which isn't helpful.
     fetch(`/characters.json`)
@@ -26,6 +26,7 @@ const characterHoverHandlers = () => {
     fetch(`/characters/${id}.json`)
       .then(res => res.json())
       .then(character => {
+        console.log(character)
         $("#app-container.wrapper").html('')
         let newCharacter = new Character(character)
         let characterHtml = newCharacter.formatShow();
@@ -49,7 +50,7 @@ function Character(character) {
 
 Character.prototype.formatIndex = function(){
   let characterHtml = `
-  <li><a href="/characters/${this.id}" data-id="${this.id}" class="character-js">${this.name}</a></li>
+  <p><a href="/characters/${this.id}" data-id="${this.id}" class="character-js">${this.name}</a><p>
   `
   return characterHtml
 }
@@ -58,7 +59,6 @@ Character.prototype.formatShow = function(){
   let characterHtml = `
   <h1>${this.name}</h1>
   <h2>Member of ${this.description}</h2>
-  <h4>!!!Need to add picture here!!!!</h4>
   <h3>STATS & ABILITIES</h3>
     <li>Rhythmic: ${this.rhythm_score}</li>
     <li>Instrumental: ${this.instrument_score}</li>
@@ -66,12 +66,16 @@ Character.prototype.formatShow = function(){
     <li>Comedic: ${this.comedy_score}</li>
 
     <li><strong>Cost to play: ${this.music_mana_cost}</strong></li>
-    <h3>Songs Known:</h3>
-    <li>${this.songs}</li>
-    <p> how do I iterate over the character's songs for this? </p>
     <a href="/characters/${this.id}/comments">${this.name}'s Comment Page</a>
   `
   return characterHtml
 }
 
 const pageHeader = '<h1>Characters</h1>'
+
+
+//can't get any of this in the show page because it's complicated and not required
+// <h4>!!!Need to add picture here!!!!</h4>
+// <h3>Songs Known:</h3>
+// <li>${this.songs}</li>
+// <p> how do I iterate over the character's songs for this? </p>
