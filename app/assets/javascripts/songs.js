@@ -7,7 +7,7 @@ $(() => {
 const songClickHandler = () => {
   $(".navbar-brand#songs-index").on("click", e => {
     e.preventDefault();
-    history.pushState(null, null, "http://localhost:3000") //if I make the third argument "characters" as per the video example, it creates route /users/characters, which isn't helpful.
+    history.pushState(null, null, "http://localhost:3000") //if I make the third argument "songs" as per the video example, it creates route /users/characters, which isn't helpful.
     getSongs();
   });
 }
