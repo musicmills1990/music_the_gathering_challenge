@@ -109,3 +109,11 @@ h4 {
     margin: auto;
     width: 52%;
   }
+
+  ol {
+    list-style-position: inside;
+  }
+
+  li {
+    position: relative;
+  }

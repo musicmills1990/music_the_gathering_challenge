@@ -4,7 +4,7 @@ $(() => {
 
 //-----character index page using fetch() ----
 const characterHoverHandlers = () => {
-  $("#characters-index").on('click',e => {
+  $("#characters-index").on('click', e => {
     e.preventDefault();
     history.pushState(null, null, "http://localhost:3000") //if I make the third argument "characters" as per the video example, it creates route /users/characters, which isn't helpful.
     fetch(`/characters.json`)
@@ -58,6 +58,20 @@ Character.prototype.formatIndex = function(){
 }
 
 Character.prototype.formatShow = function(){
+
+  let songsKnown = this.songs.map(function(song){
+    if (song.category === "Song") {
+    return `<li>${song.name}</li>`
+  }
+  }).join("")
+
+  let tunesKnown = this.songs.map(function(song){
+    if (song.category === "Tune") {
+      return `<li>${song.name}</li>`
+    }
+  }).join("")
+
+
   let characterHtml = `
   <h1>${this.name}</h1>
   <h2>Member of ${this.description}</h2>
@@ -68,9 +82,17 @@ Character.prototype.formatShow = function(){
     <li>Comedic: ${this.comedy_score}</li>
 
     <li><strong>Cost to play: ${this.music_mana_cost}</strong></li>
+    <ol>
+      <h3>Songs Known:</h3>
+      <h4><u>Songs</u></h4>
+      ${songsKnown}</ol><ol>
+      <h4><u>Tunes</u></h4>
+      ${tunesKnown}
+      </ol>
     <a href="/characters/${this.id}/comments">${this.name}'s Comment Page</a>
   `
   return characterHtml
 }
+
 
 const pageHeader = '<h1>Characters</h1>'

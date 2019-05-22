@@ -38,10 +38,10 @@ const newSongFormHandler = () => {
     $.post('/songs', values)
     .done(function(data){
       $("#app-container.wrapper").html('')
-      // getSongs();//put the new data OR
-      let newSong = new Song(data)
-      let songHtml = newSong.submitNewSong();
-      $("#app-container.wrapper").html(songHtml)
+      getSongs();//put the new data OR
+      // let newSong = new Song(data)
+      // let songHtml = newSong.submitNewSong();
+      // $("#app-container.wrapper").html(songHtml)
       //but for UX design I would way rather have the first option...
     })
   })

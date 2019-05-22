@@ -18,7 +18,7 @@ const commentSubmitHandler = () => {
         $li.append(commentHtml);
       }
     })
-    //some kind of refresh the button function?
+    //document.getElementById("submit").disabled = false;
   })
 }
 
