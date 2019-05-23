@@ -12,13 +12,9 @@ const characterHoverHandlers = () => {
       .then(characters => {
         $("#app-container.wrapper").html('')
         $("#app-container.wrapper").append(pageHeader)
-        characters.forEach((character) => {
-          let newCharacter = new Character(character)
-          let characterHtml = newCharacter.formatIndex();
-          $("#app-container.wrapper").append(characterHtml)
+        getCharacters(characters);
       })
-    })
-  });
+    });
 
 //-----character show page using fetch() ----
   $(document).on("click", ".character-js", function(e) {
@@ -50,9 +46,17 @@ function Character(character) {
   this.songs = character.songs
 }
 
+function getCharacters(characters){
+  characters.forEach((character) => {
+    let newCharacter = new Character(character)
+    let characterHtml = newCharacter.formatIndex();
+    $("#app-container.wrapper").append(characterHtml)
+  })
+};
+
 Character.prototype.formatIndex = function(){
   let characterHtml = `
-  <p><a href="/characters/${this.id}" data-id="${this.id}" class="character-js">${this.name}</a><p>
+  <p>${this.id}. <a href="/characters/${this.id}" data-id="${this.id}" class="character-js">${this.name}</a><p>
   `
   return characterHtml
 }
@@ -62,7 +66,7 @@ Character.prototype.formatShow = function(){
   let songsKnown = this.songs.map(function(song){
     if (song.category === "Song") {
     return `<li>${song.name}</li>`
-  }
+    }
   }).join("")
 
   let tunesKnown = this.songs.map(function(song){
@@ -71,6 +75,21 @@ Character.prototype.formatShow = function(){
     }
   }).join("")
 
+  function displaySongsKnown(){
+    if (songsKnown === "") {
+      return "No songs known yet."
+    } else {
+      return songsKnown
+    }
+  }
+
+  function displayTunesKnown(){
+    if (tunesKnown === "") {
+      return "No tunes known yet."
+    } else {
+      return tunesKnown
+    }
+  }
 
   let characterHtml = `
   <h1>${this.name}</h1>
@@ -80,19 +99,17 @@ Character.prototype.formatShow = function(){
     <li>Instrumental: ${this.instrument_score}</li>
     <li>Vocal: ${this.vocal_score}</li>
     <li>Comedic: ${this.comedy_score}</li>
-
     <li><strong>Cost to play: ${this.music_mana_cost}</strong></li>
     <ol>
       <h3>Songs Known:</h3>
       <h4><u>Songs</u></h4>
-      ${songsKnown}</ol><ol>
+      ${displaySongsKnown()}</ol><ol>
       <h4><u>Tunes</u></h4>
-      ${tunesKnown}
+      ${displayTunesKnown()}
       </ol>
     <a href="/characters/${this.id}/comments">${this.name}'s Comment Page</a>
   `
   return characterHtml
 }
 
-
-const pageHeader = '<h1>Characters</h1>'
+const pageHeader = `<h1>Characters</h1>`
