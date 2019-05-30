@@ -272,3 +272,27 @@ GENERAL ISSUE:
 *****another update*****
 I got it! I just had to change the controller back to render json -->
 -the button is clicked/unclickable after I submit the comment
+
+
+***here's a cool custom rake task from smithwebtek dude's studygroup session:
+it would go in lib/tasks labeled "whatever.rake" and to use it you call "rake db:whatever"
+
+namespace :db do
+  desc 'Drop, Create, Migrate, Seed db, Start rails server'
+  task dcms: :environment do
+    puts 'dropping db....'
+    Rake::Task['db:drop'].invoke
+
+    puts 'creating db....'
+    Rake::Task['db:create'].invoke
+
+    puts 'running migrations ....'
+    Rake::Task['db:migrate'].invoke
+
+    puts 'seeding db ....'
+    Rake::Task['db:seed'].invoke
+
+    puts 'starting rails server ....'
+    exec('rails s')    
+  end
+end

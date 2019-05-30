@@ -9,5 +9,5 @@
 <%= form_for @comment, url: character_comments_path, method: :post do |t| %>
   <%= t.label :add_your_comment %>
   <%= t.text_field :name %>
-  <%= t.submit "Add Your Comment!" %>
+  <%= t.submit "Add Your Comment!", data: { disable_with: false } %>
 <% end %>

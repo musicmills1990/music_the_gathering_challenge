@@ -18,7 +18,10 @@ const commentSubmitHandler = () => {
         $li.append(commentHtml);
       }
     })
-    //document.getElementById("submit").disabled = false;
+    $(document).unload(function() {
+      $.rails.enableFormElements($($.rails.formSubmitSelector));
+    });
+    // document.getElementById("form#new_comment input[type=submit]").disabled = false;
   })
 }
 
