@@ -18,6 +18,9 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
 gem "omniauth-rails_csrf_protection"
+gem "rubyzip", ">= 1.3.0"
+gem "nokogiri", ">= 1.10.4"
+
 
 
 group :development, :test do
