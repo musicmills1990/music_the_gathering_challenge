@@ -17,6 +17,8 @@ gem 'jquery-rails'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
+gem "omniauth-rails_csrf_protection"
+
 
 group :development, :test do
 

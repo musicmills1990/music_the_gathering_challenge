@@ -1,8 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
   validates :email, presence: true, uniqueness: true
-  #validates :music_mana, presence: true
-
+  validates :music_mana, numericality: {greater_than_or_equal_to: 500, message: "is important. Start with at least 500."}
   #has_many :teams
   has_many :characters, through: :teams
   has_many :performs
