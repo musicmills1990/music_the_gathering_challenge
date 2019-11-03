@@ -16,4 +16,8 @@
   <h2>Comedic: <%= @user.comedy_xp%> XP</h2>
   <h1>Total: <%= @user.user_total_xp %> XP</h1>
 
+  <% if @user.admin == true %>
+  <h3> ADMIN </h3>
+  <% end %>
+
 <p>Get any 100 XP points to move up to the next level!</p>

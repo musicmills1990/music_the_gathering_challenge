@@ -4,5 +4,6 @@
   <li> <%= song.characters.sum(&:character_count) %> characters know <%= link_to song.name, song_path(song) %></li>
   <% end %>
 <% else %>
+  <h3>No songs known yet!</h3>
 <button><%= link_to "Go Back", songs_path%></button>
 <% end %>
